@@ -15,7 +15,7 @@ function letöltésBefejeződött(k) {
     for (var i = 0; i < k.length ; i++)
     {
         var ujElem = document.createElement('div')
-        ujElem.innerText = k[i]
+        ujElem.innerText = k[i].question
         document.getElementById('main').appendChild(ujElem)
     }
 }
