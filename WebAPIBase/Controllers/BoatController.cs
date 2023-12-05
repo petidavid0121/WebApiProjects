@@ -1,12 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebAPIBase.Models;
 
 namespace WebAPIBase.Controllers
 {
-    public class BoatController : Controller
+    [ApiController]
+    public class BoatController : ControllerBase
     {
-        public IActionResult Index()
+        [HttpGet]
+        [Route("questions/all")]
+        public IActionResult MindegyHogyHivjak()
         {
-            return View();
+            HajosContext context = new HajosContext();
+            var kérdések = from x in context.Questions select x.Question1;
+
+            return Ok(kérdések);
         }
     }
 }
